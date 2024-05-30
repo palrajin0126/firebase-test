@@ -40,7 +40,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
+    <main className="flex flex-col lg:flex-row min-h-screen bg-blue-100">
       <aside className="w-full lg:w-1/4 p-6 bg-white shadow-md">
         <h2 className="text-xl font-bold mb-4">Filters</h2>
         <div className="mb-6">
