@@ -9,7 +9,7 @@ interface SignUpProps {
   onSignUp: (fullName: string, email: string, password: string) => void;
 }
 
-const SignUp = ({ onSignUp }: SignUpProps) => {
+const SignUp = () => {
     const router = useRouter()
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
