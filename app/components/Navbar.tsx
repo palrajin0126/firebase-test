@@ -2,21 +2,17 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { auth } from '../firebase'; // Import firebase config
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { User, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<null | User>(null); // Initialize with null | User
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
+      setUser(user); // Now the type is compatible
     });
 
     return () => unsubscribe();
