@@ -40,8 +40,8 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen bg-gray-100">
-      <aside className="w-1/4 p-6 bg-white shadow-md">
+    <main className="flex flex-col lg:flex-row min-h-screen bg-gray-100">
+      <aside className="w-full lg:w-1/4 p-6 bg-white shadow-md">
         <h2 className="text-xl font-bold mb-4">Filters</h2>
         <div className="mb-6">
           <h3 className="text-lg font-semibold mb-2">Budget</h3>
@@ -74,11 +74,11 @@ export default function Home() {
       </aside>
       <section className="flex-1 p-6">
         <h1 className="text-2xl font-bold mb-6">Properties</h1>
-        <div className="flex flex-col space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties.map(property => (
             <div 
               key={property.id} 
-              className="bg-white p-4 rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105 w-1/2" 
+              className="bg-white p-4 rounded-lg shadow-md cursor-pointer transition-transform transform hover:scale-105" 
               onClick={() => handleCardClick(property.id)}
             >
               <img 
