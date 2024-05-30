@@ -15,7 +15,7 @@ const SignIn = () => {
     const [error, setError] = useState(null);
     const router = useRouter();
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password);
