@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import { useState, useEffect, Suspense } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation'; // Import useSearchParams here
+import { useRouter, useSearchParams } from 'next/navigation';
 import { auth, db } from '@/app/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -8,7 +8,6 @@ import { onAuthStateChanged } from 'firebase/auth';
 export default function ViewProperties() {
   const [user, setUser] = useState<{ id: string; email: string | null } | null>(null);
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -19,30 +18,25 @@ export default function ViewProperties() {
         });
       } else {
         setUser(null);
-        router.push('/Signin'); // Redirect to login if not authenticated
+        router.push('/Signin'); 
       }
     });
 
     return () => unsubscribe();
   }, [router]);
 
-  const propertyId = searchParams?.get('id');
-
-  if (!propertyId) {
-    return <div>Property ID is required</div>;
-  }
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-6 bg-gray-100">
       <Suspense fallback={<div>Loading...</div>}>
-        <PropertyDetails propertyId={propertyId} />
+        <PropertyDetails /> 
       </Suspense>
     </main>
   );
 }
 
-// Create a separate component to fetch and display the property data
-function PropertyDetails({ propertyId }: { propertyId: string | null }) {
+function PropertyDetails() {
+  const searchParams = useSearchParams(); 
+  const propertyId = searchParams?.get('id');
   const [property, setProperty] = useState<any>(null);
 
   useEffect(() => {
@@ -63,6 +57,10 @@ function PropertyDetails({ propertyId }: { propertyId: string | null }) {
 
     fetchProperty();
   }, [propertyId]);
+
+  if (!propertyId) {
+    return <div>Property ID is required</div>;
+  }
 
   if (!property) {
     return <div>Loading...</div>;
