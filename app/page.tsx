@@ -54,19 +54,19 @@ export default function Home() {
         <div className="mb-6">
           <h3 className="text-lg font-semibold mb-2">Type of Property</h3>
           <div className="flex flex-col">
-            <label className="mb-2">
+            <label className="mb-2 text-gray-700">
               <input type="checkbox" className="mr-2" /> Residential Apartment
             </label>
-            <label className="mb-2">
+            <label className="mb-2 text-gray-700">
               <input type="checkbox" className="mr-2" /> Independent House/Villa
             </label>
-            <label className="mb-2">
+            <label className="mb-2 text-gray-700">
               <input type="checkbox" className="mr-2" /> Residential Land
             </label>
-            <label className="mb-2">
+            <label className="mb-2 text-gray-700">
               <input type="checkbox" className="mr-2" /> Independent/Builder Floor
             </label>
-            <label className="mb-2">
+            <label className="mb-2 text-gray-700">
               <input type="checkbox" className="mr-2" /> Farm House
             </label>
           </div>
@@ -87,10 +87,10 @@ export default function Home() {
                 className="w-full h-48 object-cover rounded-md mb-4" 
                 loading="lazy"
               />
-              <h2 className="text-xl font-semibold mb-2">{property.title}</h2>
+              <h2 className="text-xl font-semibold mb-2 text-gray-800">{property.title}</h2>
               <p className="text-gray-700 mb-2">{property.area}</p>
               <p className="text-gray-600">{property.city}</p>
-              <p className="text-lg font-bold mt-2">₹{property.price}</p>
+              <p className="text-lg font-bold mt-2 text-gray-800">₹{property.price}</p>
               <p className="text-sm text-gray-500">{property.size} sqft | {property.bhk} BHK</p>
             </div>
           ))}
