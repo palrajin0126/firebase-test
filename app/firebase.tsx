@@ -12,13 +12,12 @@ dotenv.config();
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDgHzYfee_So2n3sk5a6H5ibLm0IqT4KuY",
-  authDomain: "real-estate-380ce.firebaseapp.com",
-  projectId: "real-estate-380ce",
-  storageBucket: "real-estate-380ce.appspot.com",
-  messagingSenderId: "891870984237",
-  appId: "1:891870984237:web:ea384a66acbadad097a0a4",
-  measurementId: "G-K6N4KG6FG1"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
   const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
