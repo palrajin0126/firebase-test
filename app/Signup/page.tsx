@@ -33,7 +33,7 @@ const SignUp = () => {
       <Head>
         <title>Sign Up</title>
       </Head>
-      <form onSubmit={handleSubmit} className="w-full max-w-md p-4 bg-white rounded shadow md:px-24 md:py-8 sm:p-10 lg:p-12 xl:p-14">
+      <form onSubmit={handleSubmit} className="w-full max-w-md p-4  rounded shadow md:px-24 md:py-8 sm:p-10 lg:p-12 xl:p-14">
         {error && (
           <div className="bg-red-200 border-l border-red-500 p-4 rounded text-sm text-red-700">
             {error}
